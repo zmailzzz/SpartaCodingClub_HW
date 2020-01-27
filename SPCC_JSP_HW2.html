@@ -24,7 +24,6 @@
 	<!-- JQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	
-	<!-- JQuerey시작합니다 -->
 	<script>
 
 		function q1() {
@@ -33,349 +32,363 @@
 			let name = $('#inputname').val();
 			let address = $('#inputaddress').val();
 			let phonenumber = $('#inputphonenumber').val();
-			let color = $('gridRadios1').val()
-			let numbers = $('numbers').val()
+			let color = $("input[type='radio'][name='colorselect']:checked").val()
+			let numbers = $('select[name="dropdownMenuButton"]').val();
+			let regExp = /^\d{3}-\d{3,4}-\d{4}$/;
+
+
 			if (name == ''){
 				
 				alert('이름을 입력하세요');
 				document.getElementById("inputname").focus();
 			}
 			else if (address == ''){
+
 				alert('집주소를 입력하세요');
 				document.getElementById("inputaddress").focus();
 
 			} 	
-
 
 			else if (phonenumber == ''){
 				alert('전화번호를 입력하세요');
 				document.getElementById("inputphonenumber").focus();
 
 			}
+			else if ( !regExp.test(phonenumber) ) {
+				alert("전화번호 형식에 맞게 입력해주세요.");
+				return false
 
-
-			else { 
-				let tbl = $('#patterntable');
-
-
-
-
-				$(tbl).find('tr:last').after('<tr>\
-					<td>'+name+'</td>\
-					<td>'+address+'</td>\
-					<td>'+phonenumber+'</td>\
-					<td>'+color+'</td>\
-					<td>'+numbers+'</td>\
-					</tr>');
 			}
 
+			else if (color == undefined)
+				{alert('색상 선택해주세요')
+			;
+		}
+
+		else if (numbers == '0'){
+			alert('수량을 선택해주세요')
+			
 		}
 
 
-// 출처: https://dev.uhoon.co.kr/entry/jQuery-Table에-동적-Tr-추가삭제-하기 [Dev 저장소]
+		else { 
+
+
+			console.log(color);
+			console.log(radio1);
+			console.log(radio2);
+			console.log(radio3);
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		//  let count = $('#numbers').val();
-		// if (count == ''){
-		// 	alert('갯수를 체크하세요');
-
-		// } 
-
-
-
-
-
-
-
-
-
-		function q2() { alert("장바구니 기능은 아직 제공되지 않습니다. '구매하기' 버튼을 눌러주세요")}
-		
-
-	</script>
-
-
-
-	<style>
-		* {
-			font-family: 'Stylish', sans-serif;
+			let tbl = $('#patterntable');
+			$(tbl).find('tr:last').after('<tr>\
+				<td>'+name+'</td>\
+				<td>'+address+'</td>\
+				<td>'+phonenumber+'</td>\
+				<td>'+color+'</td>\
+				<td>'+numbers+'</td>\
+				</tr>');
 		}
 
-
-		.carousel-item{margin: 30px;}
-
-
-		.wrap { border-top-color:#000;
-			border-bottom-color:#000;
-			border-left-color:#000;
-			border-right-color:#000;
-			border-style:solid;
-			border-width: 3px;
-			width: 900px;
-			margin: 50px auto 0 auto;
+	}
 
 
-		}
-		.title2 { 
 
-			display : flex;
-			flex-direction : row;
-			align-items : flex-end;
+
+
+	function q2() { alert("장바구니 기능은 아직 지원하지 않습니다.")}
+
+
+</script>
+
+
+
+<style>
+	* {
+		font-family: 'Stylish', sans-serif;
+	}
+
+
+	.carousel-item{margin: 30px;}
+
+
+	.wrap { border-top-color:#A0A0A0;
+		border-bottom-color:#A0A0A0;
+		border-left-color:#A0A0A0;
+		border-right-color:#A0A0A0;
+		border-style:solid;
+		border-width: 1.5px;
+		width: 900px;
+		margin: 50px auto 0 auto;
+
+
+	}
+	.title2 { 
+
+		display : flex;
+		flex-direction : row;
+		align-items : flex-end;
+		margin: 10px;
+		border : 2px solid black;
+		color:white; 
+		background-color:grey;
+
+	}
+
+	.title2 h2 {
+
+		font-size : 2rem;
+		margin : 0;
+		margin-right: 1.5rem;
+		margin-left : 0.5rem;
+	}
+
+	.title2 h4 {
+
+		font-size : 1rem;
+		margin-bottom: 0.3rem;
+	}
+
+
+
+
+	.title3 {
+		padding: 5px;
+		margin: 10px;
+		border-style:solid;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		border-width: 0.5px;		}
+
+		form { 
 			margin: 10px;
-			border : 2px solid black;
-			color:white; 
-			background-color:grey;
-
+			margin-right: 20px;
+			padding: 10px; 
 		}
 
-		.title2 h2 {
-
-			font-size : 2rem;
-			margin : 0;
-			margin-right: 1.5rem;
-			margin-left : 0.5rem;
-		}
-
-		.title2 h4 {
-
-			font-size : 1rem;
-			margin : 0;
-		}
-
-		.title3 {
-			padding: 5px;
-			margin: 10px;
-			border-style:solid;
+		.buttonsets{ 			
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			justify-content: center;
-			border-width: 0.5px;		}
+			justify-content: center; 
+		}
 
-			form { 
-				margin: 10px;
-				margin-right: 20px;
-				padding: 10px; 
-			}
+		.purchaseButton{ 
+			width: 400px;
+			margin-bottom: 0.5rem;
+		}
 
-			.buttonsets{ 			
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center; 
-			}
+		.bucket {
+			width : 400px;
+			margin-bottom: 1rem;
+		}
 
-			.purchaseButton{ 
-				width: 400px;
-			}
+		.dropdown{ margin-left: 1rem; }
 
-			.bucket {
-				width : 400px;
-			}
+		.tableBox { border-top-color:#000;
+		border-bottom-color:#000;
+		border-left-color:#000;
+		border-right-color:#000;
+		border-style:solid;
+		border-width: 1px;
+		width: 1500px;
+		margin: 50px auto 0 auto;  }
 
-		</style>
-	</head>
-	<body>
 
-		<div class = "wrap">
+	</style>
+</head>
+<body>
 
-			<!-- 슬라이드쇼 -->
-			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-				<ol class="carousel-indicators">
-					<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-				</ol>
-				<div class="carousel-inner">
-					<div class="carousel-item active">
-						<img class="d-block w-100" src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/MLA02?wid=1144&hei=1144&fmt=jpeg&qlt=80&op_usm=0.5,0.5&.v=1564098735372" alt="First slide">
-					</div>
-					<div class="carousel-item">
-						<img class="d-block w-100" src="https://thumbnail15.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2018/12/19/14/4/040dbf9d-c745-431a-8574-c7121415c24d.jpg" alt="Second slide">
-					</div>
-					<div class="carousel-item">
-						<img class="d-block w-100" src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/MRME2?wid=572&hei=572&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1520531651846" alt="Third slide">
-					</div>
+
+
+	<div class = "wrap">
+
+
+
+		<!-- 슬라이드쇼 -->
+		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img class="d-block w-100" src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/MLA02?wid=1144&hei=1144&fmt=jpeg&qlt=80&op_usm=0.5,0.5&.v=1564098735372" alt="First slide">
 				</div>
-				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="sr-only">Previous</span>
-				</a>
-				<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="sr-only">Next</span>
-				</a>
+				<div class="carousel-item">
+					<img class="d-block w-100" src="https://thumbnail15.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2018/12/19/14/4/040dbf9d-c745-431a-8574-c7121415c24d.jpg" alt="Second slide">
+				</div>
+				<div class="carousel-item">
+					<img class="d-block w-100" src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/MRME2?wid=572&hei=572&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1520531651846" alt="Third slide">
+				</div>
 			</div>
-			<!-- 슬라이드쇼 -->
-			<div class ="title1">
-			</div>
-
-			<div class ="title2">
-				<h2> APPLE 마우스 그레이/스페이스그레이 </h2> 
-				<h4>가격: 89000원/개</h4>
-			</div>
-
-			<div class ="title3">
-				<h5> Magic Mouse 2는 완전 충전식이기 때문에 기존 배터리를 사용하지 않아도 됩니다. 내장형 배터리와 연속식 하단 쉘 덕분에 움직이는 부분이 적고, 풋 디자인이 최적화되어 더욱 가벼워졌습니다.</h5>
-			</div>
-
-
-
-			<!-- 폼 ( 주문자성명, 집주소, 전화번호) -->
-			<form>
-				<div class="form-group row">
-					<label for="inputEmail3" class="col-sm-2 col-form-label">주문자 성명</label>
-					<div class="col-sm-10">
-						<input type="name" class="form-control" id="inputname" placeholder="name">
-					</div>
-				</div>
-				<div class="form-group row">
-					<label for="inputEmail3" class="col-sm-2 col-form-label">집주소</label>
-					<div class="col-sm-10">
-						<input type="address" class="form-control" id="inputaddress" placeholder="address">
-					</div>
-				</div>
-				<div class="form-group row">
-					<label for="inputEmail3" class="col-sm-2 col-form-label">전화번호</label>
-					<div class="col-sm-10">
-						<input type="phonenumber" class="form-control" id="inputphonenumber" placeholder="phone number">
-					</div>
-				</div>
-
-
-
-
-
-				<!-- 색상선택 선택지 -->
-
-				<fieldset class="form-group">
-					<div class="row">
-						<legend class="col-form-label col-sm-2 pt-0">색상</legend>
-						<div class="col-sm-10">
-							<div class="form-check">
-								<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-								<label class="form-check-label" for="gridRadios1" id=colorcheck1>
-									그레이
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-								<label class="form-check-label" for="gridRadios2" id=colorcheck2>
-									스페이스 그레이
-								</label>
-							</div>
-							<div class="form-check disabled">
-								<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" >
-								<label class="form-check-label" for="gridRadios3">
-									색상 랜덤
-								</label>
-							</div>
-						</div>
-					</div>
-				</fieldset>
-				<div class="form-group row">
-					<div class="col-sm-2">수량</div>
-
-
-
-
-
-
-					<!--  개수선택 드롬다운 -->
-
-					<div class="dropdown">
-						<select class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							개수를 체크하세요
-						</select>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="numbers">
-							<a class="dropdown-item" href="#">1개</a>
-							<a class="dropdown-item" href="#">2개</a>
-							<a class="dropdown-item" href="#">3개</a>
-						</div>
-					</div>
-
-
-				</div>
-
-
-
-
-
-
-
-				<!-- 버튼 -->
-				<dev class = 'buttonsets'>
-
-					<button onclick="q1()" type="button" class="btn btn-primary btn-lg btn-block purchaseButton" id="buybutton" >구매</button>
-					<button onclick="q2()" type="button" class="btn btn-secondary btn-lg btn-block bucket" id="basket">장바구니</button>
-				</dev>
-			</form>
-
-
-
+			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
 		</div>
 
-		<table class="table table-striped" id="patterntable">
-			<thead>
-				<tr>
-					<th scope="col">성명</th>
-					<th scope="col">주소</th>
-					<th scope="col">전화번호</th>
-					<th scope="col">색상</th>
-					<th scope="col">수량</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<!-- <th scope="row">1</th> -->
-					<td>철수</td>
-					<td>도곡동</td>
-					<td>010-1234-1234</td>
-					<td>그레이</td>
-					<td>2</td>
+		<div class ="title1">
+		</div>
 
-				</tr>
-				<tr>
-					<!-- <th scope="row">2</th> -->
-					<td>영수</td>
-					<td>마곡동</td>
-					<td>010-1234-1234</td>
-					<td>그레이</td>
-					<td>1</td>
-				</tr>
-				<tr>
-					<!-- <th scope="row">3</th> -->
-					<td>한우</td>
-					<td>마장동</td>
-					<td>010-4234-1234</td>
-					<td>스페이스 그레이</td>
-					<td>2</td>
-				</tr>
+		<div class ="title2">
+			<h2> APPLE 마우스 그레이/스페이스그레이 </h2> 
+			<h4>가격: 89000원/개</h4>
+		</div>
+
+		<div class ="title3">
+			<h5> Magic Mouse 2는 완전 충전식이기 때문에 기존 배터리를 사용하지 않아도 됩니다. 내장형 배터리와 연속식 하단 쉘 덕분에 움직이는 부분이 적고, 풋 디자인이 최적화되어 더욱 가벼워졌습니다.</h5>
+		</div>
 
 
 
-			</tbody>
-		</table>
+		<!-- 폼 ( 주문자성명, 집주소, 전화번호) -->
+		<form>
+			<div class="form-group row">
+				<label for="inputEmail3" class="col-sm-2 col-form-label">주문자 성명 </label>
+				<div class="col-sm-10">
+					<input type="name" class="form-control" id="inputname" placeholder="name">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="inputEmail3" class="col-sm-2 col-form-label">집주소</label>
+				<div class="col-sm-10">
+					<input type="address" class="form-control" id="inputaddress" placeholder="address">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="inputEmail3" class="col-sm-2 col-form-label">전화번호</label>
+				<div class="col-sm-10">
+					<input type="phonenumber" class="form-control" id="inputphonenumber" placeholder="phone number">
+				</div>
+			</div>
 
 
 
-	</body>
-	</html>
+
+			<!-- 색상선택 선택지 -->
+
+			<fieldset class="form-group">
+				<div class="row">
+					<legend class="col-form-label col-sm-2 pt-0">색상</legend>
+					<div class="col-sm-10" id = 'gridRadioss'>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="colorselect" id="radio1" value="그레이" >
+							<label class="form-check-label" for="gridRadios1" id=colorcheck1>
+								그레이
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="colorselect" id="radio2" value="스페이스 그레이">
+							<label class="form-check-label" for="gridRadios2" id=colorcheck2>
+								스페이스 그레이
+							</label>
+						</div>
+						<div class="form-check disabled">
+							<input class="form-check-input" type="radio" name="colorselect" id="radio3" value="랜덤" >
+							<label class="form-check-label" for="gridRadios3">
+								색상 랜덤
+							</label>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+			<div class="form-group row">
+				<div class="col-sm-2">수량</div>
+
+
+
+
+				<!--  개수선택 드롬다운 -->
+
+				<div class="dropdown">
+					<select class="btn btn-secondary dropdown-toggle"  name="dropdownMenuButton" aria-expanded="false">
+						<option class="dropdown-item" name = 'numberchecked' value ='0' >개수를 체크하세요</option>
+						<option class="dropdown-item" name = 'numberchecked' value ='1' >1개
+						</option>
+						<option  class="dropdown-item" name = 'numberchecked' value ='2'>2개
+						</option>
+						<option  class="dropdown-item" name = 'numberchecked' value ='3'>3개
+						</option>
+					</select>
+				</div>
+
+
+
+			</div> 
+
+
+
+		</form>
+
+
+
+		<!-- 버튼 -->
+		<dev class = 'buttonsets'>
+
+			<button onclick="q1()" type="button" class="btn btn-primary btn-lg btn-block purchaseButton" id="buybutton" >구매</button>
+			<button onclick="q2()" type="button" class="btn btn-secondary btn-lg btn-block bucket" id="basket">장바구니</button>
+		</dev>
+	</form>
+
+
+
+</div>
+
+
+<div class="tableBox">
+
+<table class="table table-striped" id="patterntable">
+	<thead>
+		<tr>
+			<th scope="col">성명</th>
+			<th scope="col">주소</th>
+			<th scope="col">전화번호</th>
+			<th scope="col">색상</th>
+			<th scope="col">수량</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<!-- <th scope="row">1</th> -->
+			<td>철수</td>
+			<td>도곡동</td>
+			<td>010-1234-1234</td>
+			<td>그레이</td>
+			<td>2</td>
+
+		</tr>
+		<tr>
+			<!-- <th scope="row">2</th> -->
+			<td>영수</td>
+			<td>마곡동</td>
+			<td>010-1234-1234</td>
+			<td>그레이</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<!-- <th scope="row">3</th> -->
+			<td>한우</td>
+			<td>마장동</td>
+			<td>010-4234-1234</td>
+			<td>스페이스 그레이</td>
+			<td>2</td>
+		</tr>
+
+
+
+	</tbody>
+</table>
+</div>
+
+</body>
+</html>
