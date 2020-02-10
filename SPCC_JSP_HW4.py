@@ -24,12 +24,14 @@ for music in musics:
 
     if a_tag is not None:
         title = a_tag.text.lstrip()
+        photo = music.select_one('td:nth-child(3) > a > img').get('src')
         artist = music.select_one('td.info > a.artist.ellipsis').text
         print(rank,title,artist)
 
         doc = {
             'rank': rank,
             'title': title,
+            'photo': photo,
             'artist': artist
         }
         db.musics.insert_one(doc)
