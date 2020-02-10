@@ -36,7 +36,3 @@ for music in musics:
 
         rank += 1
 
-        # old_content > table > tbody > tr:nth-child(2) > td.title > div > a
-        # old_content > table > tbody > tr:nth-child(2) > td.title > div > a
-        # old_content > table > tbody > tr:nth-child(2) > td.title > div
-        # body-content > div.newest-list > div > table > tbody > tr:nth-child(1) > td.info > a.artist.ellipsis
