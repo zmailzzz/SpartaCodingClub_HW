@@ -18,6 +18,14 @@ musics = soup.select('#body-content > div.newest-list > div > table > tbody > tr
 
 # movies (tr들) 의 반복문을 돌리기
 rank = 1
+music_data = {
+    'rank': rank,
+    'image': '',
+    'title': '',
+    'artist': ''
+}
+
+
 for music in musics:
     # movie 안에 a 가 있으면,
     a_tag = music.select_one('td.info > a.title.ellipsis')
@@ -28,13 +36,13 @@ for music in musics:
         artist = music.select_one('img').attrs['src'].replace('//','')
         print(rank,photo,title,artist)
 
-        doc = {
+        music_data = {
             'rank': rank,
             'title': title,
             'photo': photo,
             'artist': artist
         }
-        db.musics.insert_one(doc)
+        db.musics.insert_one(music_data)
 
         rank += 1
 
