@@ -25,8 +25,8 @@ for music in musics:
     if a_tag is not None:
         title = a_tag.text.lstrip()
         photo = music.select_one('td:nth-child(3) > a > img').get('src')
-        artist = music.select_one('td.info > a.artist.ellipsis').text
-        print(rank,title,artist)
+        artist = music.select_one('img').attrs['src'].replace('//','')
+        print(rank,photo,title,artist)
 
         doc = {
             'rank': rank,
