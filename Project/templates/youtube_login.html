@@ -1,3 +1,5 @@
+<!-- Page1: login Youtube Api  -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,7 +10,10 @@
       href="https://fonts.googleapis.com/css?family=Stylish&display=swap"
       rel="stylesheet"
     />
-
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/mystyle.css') }}"
+    />
     <!-- Required meta tags -->
     <meta
       name="viewport"
@@ -49,9 +54,14 @@
         // let apiKey = 'AIzaSyBJ0MaYkFDktW9Hbr-vVvtptbhgZlSXKTw';
         // let playlistId = 'PLuQtmaviIuYqxtcFGjtECU_vHQSDRStIj';
         // let url = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId='+playlistId+'&key='+apiKey+'&maxResults=50';
-        let apiKey = "AIzaSyAqeOM2ZmHdwI8lgV75x5D3oplIN_Iw1eo";
+
+        // ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // /////////////////////let apiKey = "AIzaSyAqeOM2ZmHdwI8lgV75x5D3oplIN_Iw1eo";
+        // ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         let ownerID = "JeeSoo";
+
         let playlistId = "PL3g4-ArZ2i-_HGN_h3xty5rZYxeljb3Xp";
+
         let url =
           "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=" +
           playlistId +
@@ -76,6 +86,9 @@
               // 이 코드 실행. JSON.parse로 만든 객체를 result에 저장
               let result = JSON.parse(req.responseText);
               let items = result.items;
+              let urls = [];
+              let titles = [];
+              let DataSet = [];
               for (let i = 0; i < items.length; i++) {
                 // 비디오아이디를 변수로 지정
                 let vid = items[i].snippet.resourceId.videoId;
@@ -84,29 +97,60 @@
                   "https://www.youtube.com/watch?v=" +
                   vid +
                   "&t=2s&index=1&list=PL3g4-ArZ2i-_HGN_h3xty5rZYxeljb3Xp";
+
+                let playlistitem_title = items[i].snippet.title;
+                let playlistitem_url = vurl;
+
                 // 영상 제목과 변수로 놓은 url을 쭉 가져옴.
                 // '\t': tap 키만큼의 공백
-                console.log(items[i].snippet.title + "\t" + vurl);
+                // console.log(items[i].snippet.title + "\t" + vurl);
                 // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 // 여기부터 삽질고고
-                let playlistitem_url = items[i].snippet.title + "\t" + vurl;
-                // let ID_give = apiKey;
-                $.ajax({
-                  type: "POST", // POST 방식으로 요청하겠다.
-                  url: "/post", // /post라는 url에 요청하겠다.
-                  data: { url_give: playlistitem_url, ID_give: ownerID }, // 데이터를 주는 방법
-                  success: function(response) {
-                    // 성공하면
-                    if (response["result"] == "success") {
-                      alert("포스팅 성공!");
-                      window.location.reload();
-                    } else {
-                      alert("서버 오류!");
-                    }
-                  }
-                });
-              }
+                // let playlistitem_url = items[i].snippet.title + "\t" + vurl;
 
+                // let ID_give = apiKey;
+                titles.push(playlistitem_title);
+                urls.push(playlistitem_url);
+                DataSet.push({ ownerID: "jjjj", URLz: playlistitem_url });
+              }
+              console.log(titles);
+              // console.log(title);
+              console.log(urls);
+              // console.log(url);
+              console.log(DataSet);
+
+              $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                url: "/post",
+                data: JSON.stringify(DataSet), // convert array to JSON
+                dataType: "json",
+                // cache: false,
+                // timeout: 100000,
+                success: function(data) {
+                  console.log("SUCCESS : ", data);
+                },
+                error: function(e) {
+                  console.log("ERROR : ", e);
+                }
+              });
+
+              // $.ajax({
+              //   type: "POST", // POST 방식으로 요청하겠다.
+              //   url: "/post", // /post라는 url에 요청하겠다.
+              //   // data: { url_give: url, ID_give: ownerID },
+              //   data: { DataSet }, // 데이터를 주는 방법
+              //   success: function(response) {
+              //     // 성공하면
+
+              //     if (response["result"] == "success") {
+              //       alert("포스팅 성공!!!");
+              //       window.location.reload();
+              //     } else {
+              //       alert("서버 오류!");
+              //     }
+              //   }
+              // });
               // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
               // token 하나 다 돌린 뒤 다음페이지 토큰이 있으면 또 다시 콜해서 두번째 토큰 돌림.
@@ -118,6 +162,12 @@
               alert("Error loading page\n");
             }
           }
+
+          //   function topagetwo() {
+          //     window.location.href = "/mypage";
+          //   }
+
+          //   topagetwo();
         };
         // 접속 시작
         req.send(null);

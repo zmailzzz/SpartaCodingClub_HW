@@ -1,0 +1,208 @@
+<!-- Page2: check-in &  Youtube 가져오기  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>뚜루뚜루</title>
+    <!-- HTML에 이 부분을 추가하고 -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Stylish&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/calendar_card.css') }}"
+    />
+    <!-- Required meta tags -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+      function checkinDate() {
+        let today = new Date();
+        let year = today.getFullYear(); // 년도
+        let month = today.getMonth() + 1; // 월
+        let date = today.getDate(); // 날짜
+        let day = today.getDay(); // 요일
+        var week = new Array(
+          "Sun",
+          "Mon",
+          "Tues",
+          "Wednes",
+          "Thurs",
+          "Fri",
+          "Satur"
+        );
+
+        let day_letter = week[today.getDay()] + "day";
+
+        let mmdd = month + "/" + date;
+
+        console.log(mmdd);
+        console.log(day_letter);
+
+        $.ajax({
+          type: "POST", // POST 방식으로 요청하겠다.
+          url: "/postCheckin", // /post라는 url에 요청하겠다.
+          data: { date_give: mmdd, day_give: day_letter }, // 데이터를 주는 방법
+          success: function(response) {
+            // 성공하면
+            if (response["result"] == "success") {
+              alert("체크인 성공!");
+
+              // window.location.reload();
+            } else {
+              alert("서버 오류!");
+            }
+
+            get_postCheckin();
+          }
+        });
+      }
+
+      function get_postCheckin() {
+        // $("#cards-box").empty("");
+        $.ajax({
+          type: "GET",
+          url: "/postCheckin",
+          data: {},
+
+          success: function(response) {
+            let checkin_info = response["CheckInTest"];
+
+            // console.log(msg);
+            console.log(response["CheckInTest"]);
+            console.log(checkin_info);
+
+            let checkinNumbers = checkin_info.length;
+            let startingNumber = checkinNumbers - 24;
+
+            for (let i = startingNumber; i < checkinNumbers; i++) {
+              let date = checkin_info[i]["Date"];
+              let day = checkin_info[i]["Day"];
+
+              changeText(day, date);
+            }
+
+            // for (let i = 0; i < cards.length; i++) {
+            //   let url = cards[i]["url"];
+            //   let comment = cards[i]["comment"];
+            //   let title = cards[i]["title"];
+            //   let image = cards[i]["image"];
+            //   let desc = cards[i]["desc"];
+
+            // }
+          }
+        });
+      }
+      function changeText(day, date) {
+        $("p").text("hahahahaha");
+        $(".classs").text(day);
+        $(".classss").text(date);
+      }
+      //     '<div class="card">\
+      //       <img class="card-img-top" src="' +
+      //       image +
+      //       '" alt="Card image cap">\
+      //       <div class="card-body">\
+      //         <a class="card-title" href="' +
+      //       url +
+      //       '" target="_blank">' +
+      //       title +
+      //       '</a>\
+      //         <p class="card-text">' +
+      //       description +
+      //       '</p>\
+      //         <p class="card-text comment">' +
+      //       comment +
+      //       "</p>\
+      //       </div>\
+      //     </div>"
+      //   );
+      // }
+      // $(document).ready(function() {
+      //   $("#post-cards").html("");
+      //   get_posting();
+      // });
+    </script>
+  </head>
+
+  <body>
+    <!-- <button onclick="call()">sssss</button> -->
+    <p>ddddd하세요.</p>
+    <p class="changetext1">ㅎㅎㅎㅎ</p>
+    <p class="changetext2">ㅎㅎㅎㅎ</p>
+    <p class="changetext3">ㅎㅎㅎㅎ</p>
+    <p class="changetext4">ㅎㅎㅎㅎ</p>
+    <p class="changetext5">ㅎㅎㅎㅎ</p>
+    <p class="changetext6">ㅎㅎㅎㅎ</p>
+    <p class="changetext7">ㅎㅎㅎㅎ</p>
+    <p class="changetext8">ㅎㅎㅎㅎ</p>
+    <p class="changetext9">ㅎㅎㅎㅎ</p>
+    <p class="changetext10">ㅎㅎㅎㅎ</p>
+    <p class="changetext11">ㅎㅎㅎㅎ</p>
+
+    <p class="classss">날짜하세요.</p>
+    <button onclick="checkinDate()">aaaaaaa</button>
+
+    <!-- <div class="card-columns-card-post" id="post-cards">
+      <div class="card">
+        <img
+          class="card-img-top"
+          src="https://www.fodors.com/wp-content/uploads/2018/10/4_UltimateRome_PiazzaNavona-975x650.jpg"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title">예를 들면 이렇게 카드가 나옵니다!!</h5>
+          <p class="card-text">여기에 기사 내용이 들어가겠죠</p>
+          <p class="card-text comment">여기엔 코멘트가 들어갑니다</p>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          class="card-img-top"
+          src="https://www.fodors.com/wp-content/uploads/2018/10/4_UltimateRome_PiazzaNavona-975x650.jpg"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title">긴 글 예시</h5>
+          <p class="card-text">
+            여기에 기사 내용이 들어가겠죠 동해물과 백두산이 마르고 닳도록
+            하느님이 보우하사 우리 나라만세 무궁화 삼천리 화려강산 대한사람
+            대한으로 길이 보전하세 여기에 기사 내용이 들어가겠죠 동해물과
+            백두산이 마르고 닳도록 하느님이 보우하사 우리 나라만세 무궁화 삼천리
+            화려강산 대한사람 대한으로 길이 보전하세
+          </p>
+        </div>
+      </div>
+    </div> -->
+  </body>
+</html>
