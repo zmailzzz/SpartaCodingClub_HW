@@ -5,15 +5,26 @@
   <head>
     <meta charset="utf-8" />
     <title>뚜루뚜루</title>
+
+    <!-- 1rem = 10px -->
+    <style>
+      html {
+        font-size: 10px;
+      }
+      body {
+        font-size: 10px;
+      }
+    </style>
+
     <!-- HTML에 이 부분을 추가하고 -->
-    <link
+    <!-- <link
       href="https://fonts.googleapis.com/css?family=Stylish&display=swap"
       rel="stylesheet"
-    />
+    /> -->
 
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='css/calendar_card.css') }}"
+      href="{{ url_for('static', filename='css/calendarcardstyle.css') }}"
     />
     <!-- Required meta tags -->
     <meta
@@ -120,6 +131,22 @@
               }
             }
 
+            // backup 888888888888888
+            // for (let i = startingNumber; i < checkinNumbers; i++) {
+            //   let date = checkin_info[i]["Date"];
+            //   let day = checkin_info[i]["Day"];
+            //   let k = [i] - startingNumber + 1;
+            //   console.log(k);
+            //   let changeday = "." + "changeday" + String(k);
+
+            //   changeText(i);
+
+            //   function changeText(i) {
+            //     $(changeday).text(day);
+            //     // $(changedate).text(date);
+            //   }
+            // }
+
             // for (let i = 0; i < cards.length; i++) {
             //   let url = cards[i]["url"];
             //   let comment = cards[i]["comment"];
@@ -160,6 +187,18 @@
   </head>
 
   <body>
+    <!-- footer -->
+    <div class="footerFrame">
+      dsfsd
+      <!-- <div class="footerBox">
+        <div class="YoutubelogoBox"></div>
+
+        <div class="YoutubeTextBox"></div>
+
+        <div class="AcademyTextBox"></div>
+      </div> -->
+    </div>
+
     <!-- <button onclick="call()">sssss</button> -->
     <button onclick="checkinDate()">aaaaaaa</button>
 
@@ -172,6 +211,22 @@
     <p class="changeday6">ㅎㅎㅎㅎ</p>
     <p class="changeday7">ㅎㅎㅎㅎ</p>
     <p class="changeday8">ㅎㅎㅎㅎ</p>
+    <!-- <p class="changeday9">a</p>
+    <p class="changeday10">ㅎㅎㅎㅎ</p>
+    <p class="changeday11">ㅎㅎㅎㅎ</p>
+    <p class="changeday12">ggg</p>
+    <p class="changeday13">ㅎㅎㅎㅎ</p>
+    <p class="changeday14">ㅎㅎㅎㅎ</p>
+    <p class="changeday15">ㅎㅎㅎㅎ</p>
+    <p class="changeday16">ㅎㅎㅎㅎ</p>
+    <p class="changeday17">ㅎㅎㅎㅎ</p>
+    <p class="changeday18">ㅎㅎㅎㅎ</p>
+    <p class="changeday19">ㅎㅎㅎㅎ</p>
+    <p class="changeday20">ㅎㅎㅎㅎ</p>
+    <p class="changeday21">ㅎㅎㅎㅎ</p>
+    <p class="changeday22">ㅎㅎㅎㅎ</p>
+    <p class="changeday23">ㅎㅎㅎㅎ</p>
+    <p class="changeday24">ㅎㅎㅎㅎ</p> -->
 
     <p class="classss">날짜하세요.</p>
 
