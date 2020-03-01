@@ -103,13 +103,21 @@
             console.log(checkin_info);
 
             let checkinNumbers = checkin_info.length;
-            let startingNumber = checkinNumbers - 24;
+            let startingNumber = checkinNumbers - 8;
 
             for (let i = startingNumber; i < checkinNumbers; i++) {
               let date = checkin_info[i]["Date"];
               let day = checkin_info[i]["Day"];
+              let k = [i] - startingNumber + 1;
+              console.log(k);
+              let changeday = "." + "changeday" + String(k);
 
-              changeText(day, date);
+              changeText(i);
+
+              function changeText(i) {
+                $(changeday).text(day);
+                // $(changedate).text(date);
+              }
             }
 
             // for (let i = 0; i < cards.length; i++) {
@@ -123,11 +131,7 @@
           }
         });
       }
-      function changeText(day, date) {
-        $("p").text("hahahahaha");
-        $(".classs").text(day);
-        $(".classss").text(date);
-      }
+
       //     '<div class="card">\
       //       <img class="card-img-top" src="' +
       //       image +
@@ -157,21 +161,19 @@
 
   <body>
     <!-- <button onclick="call()">sssss</button> -->
+    <button onclick="checkinDate()">aaaaaaa</button>
+
     <p>ddddd하세요.</p>
-    <p class="changetext1">ㅎㅎㅎㅎ</p>
-    <p class="changetext2">ㅎㅎㅎㅎ</p>
-    <p class="changetext3">ㅎㅎㅎㅎ</p>
-    <p class="changetext4">ㅎㅎㅎㅎ</p>
-    <p class="changetext5">ㅎㅎㅎㅎ</p>
-    <p class="changetext6">ㅎㅎㅎㅎ</p>
-    <p class="changetext7">ㅎㅎㅎㅎ</p>
-    <p class="changetext8">ㅎㅎㅎㅎ</p>
-    <p class="changetext9">ㅎㅎㅎㅎ</p>
-    <p class="changetext10">ㅎㅎㅎㅎ</p>
-    <p class="changetext11">ㅎㅎㅎㅎ</p>
+    <p class="changeday1">a</p>
+    <p class="changeday2">ㅎㅎㅎㅎ</p>
+    <p class="changeday3">ㅎㅎㅎㅎ</p>
+    <p class="changeday4">ggg</p>
+    <p class="changeday5">ㅎㅎㅎㅎ</p>
+    <p class="changeday6">ㅎㅎㅎㅎ</p>
+    <p class="changeday7">ㅎㅎㅎㅎ</p>
+    <p class="changeday8">ㅎㅎㅎㅎ</p>
 
     <p class="classss">날짜하세요.</p>
-    <button onclick="checkinDate()">aaaaaaa</button>
 
     <!-- <div class="card-columns-card-post" id="post-cards">
       <div class="card">
