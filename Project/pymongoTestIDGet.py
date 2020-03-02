@@ -34,32 +34,9 @@ def mypage():
 #     # info = {'ID': ID_receive, 'url': url_receive}
 #     # db.testID.insert_one(info)
 
-# #################################################################################################################
-# #################################################################################################################
-# #################################################################################################################
-# #################################################################################################################
-# @app.route('/post', methods=['POST'])
-# def postJsonHandler():
-#     print(request.is_json)
-#     content = request.get_json()
-#     print(content)
-#     db.testIDD.insert(content)
-#     # return render_template('calendar_card.html')
-#     # 중복제거
-#     # db.testIDD.distinct("ownerID" and "URLz")
-#     print('mypage')
-#     # mypage()
-#     return 'JSON posted'
-######################################################################################################################
-# #################################################################################################################
-# #################################################################################################################
-# #################################################################################################################
 
-@app.route('/post', methods=['GET'])
-def view():
-    posts = db.testIDD.find({}, {'_id': 0})
-    return jsonify({'result': 'success', 'articles': list(posts)})
 
+########## 체크인 관련 DB##########################
 
 @app.route('/postCheckin', methods=['POST'])
 def postCheckin():
@@ -84,6 +61,42 @@ def test_get():
     # print(list(checkinInfo))
     # print('sdfdsfdsfdsfdsfas')
     return jsonify({'result': 'success', 'CheckInTest': list(checkinInfo)})
+
+
+
+
+
+
+
+
+# ########   YOUTUBE 관련 DB  ################
+
+
+@app.route('/post', methods=['POST'])
+def postJsonHandler():
+    print(request.is_json)
+    content = request.get_json()
+    print(content)
+    db.personalInfo.insert(content)
+    # return render_template('calendar_card.html')
+    # 중복제거
+    # db.testIDD.distinct("ownerID" and "URLz")
+    print('mypage')
+    # mypage()
+    return 'JSON posted'
+
+
+@app.route('/post', methods=['GET'])
+def view():
+    posts = db.personalInfo.find({}, {'_id': 0})
+    return jsonify({'result': 'success', 'articles': list(posts)})
+
+
+
+
+
+
+
 
 
 # @app.route('/get', methods=['POST'])
