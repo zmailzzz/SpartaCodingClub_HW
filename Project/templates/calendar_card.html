@@ -24,8 +24,10 @@
 
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='css/ccstyle.css?ver1') }}"
+      type="text/css"
+      href="{{ url_for('static', filename='css/cccstyle.css') }}"
     />
+
     <!-- Required meta tags -->
     <meta
       name="viewport"
@@ -33,7 +35,7 @@
     />
 
     <!-- Bootstrap CSS -->
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -43,7 +45,7 @@
       src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
-    ></script>
+    ></script> -->
 
     <!-- JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -114,7 +116,7 @@
             console.log(checkin_info);
 
             let checkinNumbers = checkin_info.length;
-            let startingNumber = checkinNumbers - 8;
+            let startingNumber = checkinNumbers - 24;
 
             for (let i = startingNumber; i < checkinNumbers; i++) {
               let date = checkin_info[i]["Date"];
@@ -122,12 +124,13 @@
               let k = [i] - startingNumber + 1;
               console.log(k);
               let changeday = "." + "changeday" + String(k);
+              let changedate = "." + "changedate" + String(k);
 
               changeText(i);
 
               function changeText(i) {
                 $(changeday).text(day);
-                // $(changedate).text(date);
+                $(changedate).text(date);
               }
             }
 
@@ -188,78 +191,297 @@
 
   <body>
     <!-- footer -->
-    <div class="footerFrame">
-      dsfsd
-      <!-- <div class="footerBox">
-        <div class="YoutubelogoBox"></div>
+    <div class="headerFrame">
+      <div class="headerBox">
+        <div class="YoutubelogoBox">
+          <!-- <img src="/youtubeLogo.png" /> -->
+        </div>
 
-        <div class="YoutubeTextBox"></div>
+        <div class="YoutubeTextBox">
+          <div class="YoutubeText">
+            Youtube
+          </div>
+        </div>
 
-        <div class="AcademyTextBox"></div>
-      </div> -->
+        <div class="AcademyTextBox">
+          <div class="AcademyText">
+            Academy
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- <button onclick="call()">sssss</button> -->
-    <button onclick="checkinDate()">aaaaaaa</button>
+    <!-- 본문 박스 입니다. -->
+    <div class="fullBody">
+      <!-- 왼쪽 박스 입니다.  -->
+      <div class="leftBody">
+        <div class="leftBox">
+          <div class="smallTitleBoxLeft">
+            <div class="smallTitleTextLeft">Check-In</div>
+          </div>
 
-    <p>ddddd하세요.</p>
-    <p class="changeday1">a</p>
-    <p class="changeday2">ㅎㅎㅎㅎ</p>
-    <p class="changeday3">ㅎㅎㅎㅎ</p>
-    <p class="changeday4">ggg</p>
-    <p class="changeday5">ㅎㅎㅎㅎ</p>
-    <p class="changeday6">ㅎㅎㅎㅎ</p>
-    <p class="changeday7">ㅎㅎㅎㅎ</p>
-    <p class="changeday8">ㅎㅎㅎㅎ</p>
-    <!-- <p class="changeday9">a</p>
-    <p class="changeday10">ㅎㅎㅎㅎ</p>
-    <p class="changeday11">ㅎㅎㅎㅎ</p>
-    <p class="changeday12">ggg</p>
-    <p class="changeday13">ㅎㅎㅎㅎ</p>
-    <p class="changeday14">ㅎㅎㅎㅎ</p>
-    <p class="changeday15">ㅎㅎㅎㅎ</p>
-    <p class="changeday16">ㅎㅎㅎㅎ</p>
-    <p class="changeday17">ㅎㅎㅎㅎ</p>
-    <p class="changeday18">ㅎㅎㅎㅎ</p>
-    <p class="changeday19">ㅎㅎㅎㅎ</p>
-    <p class="changeday20">ㅎㅎㅎㅎ</p>
-    <p class="changeday21">ㅎㅎㅎㅎ</p>
-    <p class="changeday22">ㅎㅎㅎㅎ</p>
-    <p class="changeday23">ㅎㅎㅎㅎ</p>
-    <p class="changeday24">ㅎㅎㅎㅎ</p> -->
+          <!-- 캘린더 시작 -->
+          <div class="calendarBoxOuter">
+            <div class="calendarBoxInner">
+              <div class="calendarRow1">
+                <div class="indiBox">
+                  <div class="DayBox">
+                    <p class="changeday1"></p>
+                  </div>
+                  <div class="DateBox">
+                    <p class="changedate1"></p>
+                  </div>
+                </div>
+                <div class="indiBox">
+                  <div class="DayBox">
+                    <p class="changeday2"></p>
+                  </div>
+                  <div class="DateBox">
+                    <p class="changedate2"></p>
+                  </div>
+                </div>
+                <div class="indiBox">
+                  <div class="DayBox">
+                    <p class="changeday3"></p>
+                  </div>
+                  <div class="DateBox">
+                    <p class="changedate3"></p>
+                  </div>
+                </div>
+                <div class="indiBox">
+                  <div class="DayBox">
+                    <p class="changeday4"></p>
+                  </div>
+                  <div class="DateBox">
+                    <p class="changedate4"></p>
+                  </div>
+                </div>
+                <div class="indiBox">
+                  <div class="DayBox">
+                    <p class="changeday5"></p>
+                  </div>
+                  <div class="DateBox">
+                    <p class="changedate5"></p>
+                  </div>
+                </div>
+              </div>
 
-    <p class="classss">날짜하세요.</p>
+              <div class="calendarRow2">
+                <div class="indiBox">
+                  <div class="DayBox">
+                    <p class="changeday6"></p>
+                  </div>
+                  <div class="DateBox">
+                    <p class="changedate6"></p>
+                  </div>
+                </div>
+                <div class="indiBox">
+                  <div class="DayBox">
+                    <p class="changeday7"></p>
+                  </div>
+                  <div class="DateBox">
+                    <p class="changedate7"></p>
+                  </div>
+                </div>
+                <div class="indiBox">
+                  <div class="DayBox">
+                    <p class="changeday8"></p>
+                  </div>
+                  <div class="DateBox">
+                    <p class="changedate8"></p>
+                  </div>
+                </div>
+                <div class="indiBox">
+                  <div class="DayBox">
+                    <p class="changeday9"></p>
+                  </div>
+                  <div class="DateBox">
+                    <p class="changedate9"></p>
+                  </div>
+                </div>
+                <div class="indiBox">
+                  <div class="DayBox">
+                    <p class="changeday10"></p>
+                  </div>
+                  <div class="DateBox">
+                    <p class="changedate10"></p>
+                  </div>
+                </div>
+              </div>
 
-    <!-- <div class="card-columns-card-post" id="post-cards">
-      <div class="card">
-        <img
-          class="card-img-top"
-          src="https://www.fodors.com/wp-content/uploads/2018/10/4_UltimateRome_PiazzaNavona-975x650.jpg"
-          alt="Card image cap"
-        />
-        <div class="card-body">
-          <h5 class="card-title">예를 들면 이렇게 카드가 나옵니다!!</h5>
-          <p class="card-text">여기에 기사 내용이 들어가겠죠</p>
-          <p class="card-text comment">여기엔 코멘트가 들어갑니다</p>
+              <div class="calendarRow3">
+                <div class="indiBox">
+                  <div class="DayBox">
+                    <p class="changeday11"></p>
+                  </div>
+                  <div class="DateBox">
+                    <p class="changedate11"></p>
+                  </div>
+                </div>
+                <div class="indiBox">
+                  <div class="DayBox">
+                    <p class="changeday12"></p>
+                  </div>
+                  <div class="DateBox">
+                    <p class="changedate12"></p>
+                  </div>
+                </div>
+                <div class="checkinBox">
+                  <button class="checkinButton" onclick="checkinDate()">
+                    Check-In
+                  </button>
+                </div>
+                <div class="indiBox">
+                  <div class="DayBox">
+                    <p class="changeday13"></p>
+                  </div>
+                  <div class="DateBox">
+                    <p class="changedate13"></p>
+                  </div>
+                </div>
+                <div class="indiBox">
+                  <div class="DayBox">
+                    <p class="changeday14"></p>
+                  </div>
+                  <div class="DateBox">
+                    <p class="changedate14"></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="calendarRow4">
+                <div class="indiBox">
+                  <div class="DayBox">
+                    <p class="changeday15"></p>
+                  </div>
+                  <div class="DateBox">
+                    <p class="changedate15"></p>
+                  </div>
+                </div>
+                <div class="indiBox">
+                  <div class="DayBox">
+                    <p class="changeday16"></p>
+                  </div>
+                  <div class="DateBox">
+                    <p class="changedate16"></p>
+                  </div>
+                </div>
+                <div class="indiBox">
+                  <div class="DayBox">
+                    <p class="changeday17"></p>
+                  </div>
+                  <div class="DateBox">
+                    <p class="changedate17"></p>
+                  </div>
+                </div>
+                <div class="indiBox">
+                  <div class="DayBox">
+                    <p class="changeday18"></p>
+                  </div>
+                  <div class="DateBox">
+                    <p class="changedate18"></p>
+                  </div>
+                </div>
+                <div class="indiBox">
+                  <div class="DayBox">
+                    <p class="changeday19"></p>
+                  </div>
+                  <div class="DateBox">
+                    <p class="changedate19"></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="calendarRow5">
+                <div class="indiBox">
+                  <div class="DayBox">
+                    <p class="changeday20"></p>
+                  </div>
+                  <div class="DateBox">
+                    <p class="changedate20"></p>
+                  </div>
+                </div>
+                <div class="indiBox">
+                  <div class="DayBox">
+                    <p class="changeday21"></p>
+                  </div>
+                  <div class="DateBox">
+                    <p class="changedate21"></p>
+                  </div>
+                </div>
+                <div class="indiBox">
+                  <div class="DayBox">
+                    <p class="changeday22"></p>
+                  </div>
+                  <div class="DateBox">
+                    <p class="changedate22"></p>
+                  </div>
+                </div>
+                <div class="indiBox">
+                  <div class="DayBox">
+                    <p class="changeday23"></p>
+                  </div>
+                  <div class="DateBox">
+                    <p class="changedate23"></p>
+                  </div>
+                </div>
+                <div class="indiBox">
+                  <div class="DayBox">
+                    <p class="changeday24"></p>
+                  </div>
+                  <div class="DateBox">
+                    <p class="changedate24"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="card">
-        <img
-          class="card-img-top"
-          src="https://www.fodors.com/wp-content/uploads/2018/10/4_UltimateRome_PiazzaNavona-975x650.jpg"
-          alt="Card image cap"
-        />
-        <div class="card-body">
-          <h5 class="card-title">긴 글 예시</h5>
-          <p class="card-text">
-            여기에 기사 내용이 들어가겠죠 동해물과 백두산이 마르고 닳도록
-            하느님이 보우하사 우리 나라만세 무궁화 삼천리 화려강산 대한사람
-            대한으로 길이 보전하세 여기에 기사 내용이 들어가겠죠 동해물과
-            백두산이 마르고 닳도록 하느님이 보우하사 우리 나라만세 무궁화 삼천리
-            화려강산 대한사람 대한으로 길이 보전하세
-          </p>
+
+      <!-- 오른쪽 박스입니다. -->
+      <div class="rightBody">
+        <div class="rightBox">
+          <div class="smallTitleBoxRight">
+            <div class="smallTitleTextRight">From your Playlist</div>
+          </div>
         </div>
       </div>
-    </div> -->
+    </div>
   </body>
 </html>
+
+<!-- //////////////////////////////////////////////////////////// -->
+<!-- body에 꼭 집어넣어야함 -->
+<!-- <button onclick="call()">sssss</button>
+ <button onclick="checkinDate()">aaaaaaa</button>
+
+ <p>ddddd하세요.</p>
+ <p class="changeday1">a</p>
+ <p class="changeday2">ㅎㅎㅎㅎ</p>
+ <p class="changeday3">ㅎㅎㅎㅎ</p>
+ <p class="changeday4">ggg</p>
+ <p class="changeday5">ㅎㅎㅎㅎ</p>
+ <p class="changeday6">ㅎㅎㅎㅎ</p>
+ <p class="changeday7">ㅎㅎㅎㅎ</p>
+ <p class="changeday8">ㅎㅎㅎㅎ</p>
+ <!-- <p class="changeday9">a</p>
+<p class="changeday10">ㅎㅎㅎㅎ</p>
+<p class="changeday11">ㅎㅎㅎㅎ</p>
+<p class="changeday12">ggg</p>
+<p class="changeday13">ㅎㅎㅎㅎ</p>
+<p class="changeday14">ㅎㅎㅎㅎ</p>
+<p class="changeday15">ㅎㅎㅎㅎ</p>
+<p class="changeday16">ㅎㅎㅎㅎ</p>
+<p class="changeday17">ㅎㅎㅎㅎ</p>
+<p class="changeday18">ㅎㅎㅎㅎ</p>
+<p class="changeday19">ㅎㅎㅎㅎ</p>
+<p class="changeday20">ㅎㅎㅎㅎ</p>
+<p class="changeday21">ㅎㅎㅎㅎ</p>
+<p class="changeday22">ㅎㅎㅎㅎ</p>
+<p class="changeday23">ㅎㅎㅎㅎ</p>
+<p class="changeday24">ㅎㅎㅎㅎ</p> -->
+
+<!-- <p class="classss">날짜하세요.</p> -->
+
+<!-- //////////////////////////////////////////////////////////// -->

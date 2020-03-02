@@ -3,17 +3,37 @@ from pymongo import MongoClient  # pymongo를 임포트 하기(패키지 인스�
 client = MongoClient('localhost', 27017)  # mongoDB는 27017 포트로 돌아갑니다.
 db = client.testIDD  # 'testID'라는 이름의 db를 만듭니다.
 
+
+# db.CheckInTest.insert_one({"Date": "1/1", "Day": "Wednesday"}, {'_id': 0})
+# db.CheckInTest.insert_one({"Date": "1/4", "Day": "Saturday"}, {'_id': 0})
+# db.CheckInTest.insert_one({"Date": "1/8", "Day": "Wednesday"}, {'_id': 0})
+# db.CheckInTest.insert_one({"Date": "1/11", "Day": "Saturday"}, {'_id': 0})
+# db.CheckInTest.insert_one({"Date": "1/15", "Day": "Wednesday"}, {'_id': 0})
+# db.CheckInTest.insert_one({"Date": "1/18", "Day": "Saturday"}, {'_id': 0})
+# db.CheckInTest.insert_one({"Date": "1/22", "Day": "Wednesday"}, {'_id': 0})
+# db.CheckInTest.insert_one({"Date": "1/25", "Day": "Saturday"}, {'_id': 0})
+# db.CheckInTest.insert_one({"Date": "1/29", "Day": "Wednesday"}, {'_id': 0})
+# db.CheckInTest.insert_one({"Date": "2/1", "Day": "Saturday"}, {'_id': 0})
+#
+# db.CheckInTest.insert_one({"Date": "2/2", "Day": "Sunday"}, {'_id': 0})
+# db.CheckInTest.insert_one({"Date": "2/3", "Day": "Monday"}, {'_id': 0})
+# db.CheckInTest.insert_one({"Date": "2/5", "Day": "Wednesday"}, {'_id': 0})
+# db.CheckInTest.insert_one({"Date": "2/7", "Day": "Friday"}, {'_id': 0})
+# db.CheckInTest.insert_one({"Date": "2/8", "Day": "Saturday"}, {'_id': 0})
+# db.CheckInTest.insert_one({"Date": "2/9", "Day": "Sunday"}, {'_id': 0})
+# db.CheckInTest.insert_one({"Date": "2/12", "Day": "Wednesday"}, {'_id': 0})
+# db.CheckInTest.insert_one({"Date": "2/13", "Day": "Thursday"}, {'_id': 0})
 # db.CheckInTest.insert_one({"Date": "2/14", "Day": "Friday"}, {'_id': 0})
 # db.CheckInTest.insert_one({"Date": "2/15", "Day": "Saturday"}, {'_id': 0})
 # db.CheckInTest.insert_one({"Date": "2/16", "Day": "Sunday"}, {'_id': 0})
+#
 # db.CheckInTest.insert_one({"Date": "2/19", "Day": "Wednesday"}, {'_id': 0})
+# db.CheckInTest.insert_one({"Date": "2/20", "Day": "Thursday"}, {'_id': 0})
 # db.CheckInTest.insert_one({"Date": "2/22", "Day": "Saturday"}, {'_id': 0})
 # db.CheckInTest.insert_one({"Date": "2/26", "Day": "Wednesday"}, {'_id': 0})
 # db.CheckInTest.insert_one({"Date": "2/27", "Day": "Thursday"}, {'_id': 0})
 # db.CheckInTest.insert_one({"Date": "2/28", "Day": "Friday"}, {'_id': 0})
-# db.CheckInTest.insert_one({"Date": "3/4", "Day": "Wednesday"}, {'_id': 0})
-# db.CheckInTest.insert_one({"Date": "3/5", "Day": "Thursday"}, {'_id': 0})
-# db.CheckInTest.insert_one({"Date": "3/6", "Day": "Friday"}, {'_id': 0})
+
 
 # MongoDB에 insert 하기(완료)
 # 'users'라는 collection에 {'name':'bobby','age':21}를 넣습니다.

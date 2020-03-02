@@ -1,0 +1,653 @@
+* {
+  font-family: "Stylish", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+.headerFrame {
+  width: 153.6rem;
+  height: 5.6rem;
+  background-color: #3e4348;
+
+  /* border-width: 0.1rem;
+  border-color: black;
+  border-style: solid; */
+}
+
+.headerBox {
+  width: 153.6rem;
+  height: 100%;
+
+  display: flex;
+  align-content: center;
+}
+
+.YoutubelogoBox {
+  width: 6rem;
+  height: 6rem;
+}
+
+/* .youtubeLogo {
+  width: 5rem;
+} */
+
+.YoutubeTextBox {
+  width: 10rem;
+  height: 5.6rem;
+  display: flex;
+  /* vertical-align: middle; */
+}
+
+.YoutubeText {
+  margin: auto;
+  font-size: 2.5rem;
+  color: white;
+  font: Serif;
+  font-weight: bolder;
+}
+
+.AcademyTextBox {
+  width: 15rem;
+  height: 5.6rem;
+}
+
+.AcademyText {
+  width: 10rem;
+  height: 3rem;
+  margin-top: 1.2rem;
+  margin-left: 0.6rem;
+  font-size: 1.3rem;
+  color: #f39c9c;
+  font: Serif;
+  font-weight: bolder;
+}
+
+.fullBody {
+  margin: 0;
+  padding: 0;
+  padding-top: 0.8rem;
+  padding-left: 0.8rem;
+
+  width: 152.5rem;
+  height: 69rem;
+
+  border-width: 0.001rem;
+  border-color: black;
+  border-style: solid;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.leftBody {
+  margin: 0;
+  padding: 0;
+
+  width: 48%;
+  height: 69rem;
+
+  /* background-color: #3e4348; */
+  border-width: 0.001rem;
+  border-color: black;
+  border-style: solid;
+}
+
+.leftBox {
+  width: 100%;
+  height: 69rem;
+
+  background-color: #d4d4d4;
+  /* border-width: 0.001rem;
+  border-color: black;
+  border-style: solid; */
+}
+
+.smallTitleBoxLeft {
+  width: 100%;
+  height: 7rem;
+  padding-top: 3rem;
+  padding-left: 6rem;
+}
+
+.smallTitleTextLeft {
+  font-size: 2.3rem;
+  width: 30%;
+  height: 3rem;
+}
+
+.rightBody {
+  width: 51%;
+  height: 100%;
+
+  margin-right: 0.5rem;
+  /* background-color: black; */
+  border-width: 0.001rem;
+  border-color: black;
+  border-style: solid;
+}
+
+.rightBox {
+  width: 100%;
+  height: 100%;
+
+  background-color: #ffebe9;
+  /* border-width: 0.001rem;
+  border-color: black;
+  border-style: solid; */
+}
+
+.smallTitleBoxRight {
+  width: 100%;
+  height: 7rem;
+  padding-top: 3rem;
+  padding-left: 6rem;
+}
+
+.smallTitleTextRight {
+  font-size: 2.3rem;
+  width: 30%;
+  height: 3rem;
+}
+
+.calendarBoxOuter {
+  width: 100%;
+  height: 57rem;
+}
+
+.calendarBoxInner {
+  margin-left: 6rem;
+  width: 57rem;
+  height: 57rem;
+}
+
+.calendarRow1 {
+  width: 100%;
+  height: 20%;
+
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  /* background-color: red; */
+}
+
+.calendarRow2 {
+  width: 100%;
+  height: 20%;
+
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  /* background-color: red; */
+}
+.calendarRow3 {
+  width: 100%;
+  height: 20%;
+
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  /* background-color: red; */
+}
+.calendarRow4 {
+  width: 100%;
+  height: 20%;
+
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  /* background-color: red; */
+}
+
+.calendarRow5 {
+  width: 100%;
+  height: 20%;
+
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  /* background-color: red; */
+}
+
+.indiBox {
+  width: 19.5%;
+  height: 98.5%;
+
+  background-color: #af4034;
+}
+
+.checkinBox {
+  width: 19.5%;
+  height: 98.5%;
+
+  background-color: #ec6a5c;
+}
+
+.checkinButton {
+  width: 100%;
+  height: 100%;
+
+  color: whitesmoke;
+  font-size: 2.3rem;
+  font-weight: bolder;
+
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+.DayBox {
+  width: 100%;
+  height: 1.3rem;
+}
+.changeday1 {
+  height: 2rem;
+  margin-top: 0.2rem;
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.changeday2 {
+  height: 2rem;
+  margin-top: 0.2rem;
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.changeday3 {
+  height: 2rem;
+  margin-top: 0.2rem;
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.changeday4 {
+  height: 2rem;
+  margin-top: 0.2rem;
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.changeday5 {
+  height: 2rem;
+  margin-top: 0.2rem;
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.changeday6 {
+  height: 2rem;
+  margin-top: 0.2rem;
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.changeday7 {
+  height: 2rem;
+  margin-top: 0.2rem;
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.changeday8 {
+  height: 2rem;
+  margin-top: 0.2rem;
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.changeday9 {
+  height: 2rem;
+  margin-top: 0.2rem;
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.changeday10 {
+  height: 2rem;
+  margin-top: 0.2rem;
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.changeday11 {
+  height: 2rem;
+  margin-top: 0.2rem;
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.changeday12 {
+  height: 2rem;
+  margin-top: 0.2rem;
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.changeday13 {
+  height: 2rem;
+  margin-top: 0.2rem;
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.changeday14 {
+  height: 2rem;
+  margin-top: 0.2rem;
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.changeday15 {
+  height: 2rem;
+  margin-top: 0.2rem;
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.changeday16 {
+  height: 2rem;
+  margin-top: 0.2rem;
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.changeday17 {
+  height: 2rem;
+  margin-top: 0.2rem;
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.changeday18 {
+  height: 2rem;
+  margin-top: 0.2rem;
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.changeday19 {
+  height: 2rem;
+  margin-top: 0.2rem;
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.changeday20 {
+  height: 2rem;
+  margin-top: 0.2rem;
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.changeday21 {
+  height: 2rem;
+  margin-top: 0.2rem;
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.changeday22 {
+  height: 2rem;
+  margin-top: 0.2rem;
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.changeday23 {
+  height: 2rem;
+  margin-top: 0.2rem;
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.changeday24 {
+  height: 2rem;
+  margin-top: 0.2rem;
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.DateBox {
+  width: 100%;
+  height: 5rem;
+}
+.changedate1 {
+  height: 5rem;
+  margin-bottom: 1.4rem;
+  font-size: 2.4rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.changedate2 {
+  height: 5rem;
+  margin-bottom: 1.4rem;
+  font-size: 2.4rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.changedate3 {
+  height: 5rem;
+  margin-bottom: 1.4rem;
+  font-size: 2.4rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.changedate4 {
+  height: 5rem;
+  margin-bottom: 1.4rem;
+  font-size: 2.4rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.changedate5 {
+  height: 5rem;
+  margin-bottom: 1.4rem;
+  font-size: 2.4rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.changedate6 {
+  height: 5rem;
+  margin-bottom: 1.4rem;
+  font-size: 2.4rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.changedate7 {
+  height: 5rem;
+  margin-bottom: 1.4rem;
+  font-size: 2.4rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.changedate8 {
+  height: 5rem;
+  margin-bottom: 1.4rem;
+  font-size: 2.4rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.changedate9 {
+  height: 5rem;
+  margin-bottom: 1.4rem;
+  font-size: 2.4rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.changedate10 {
+  height: 5rem;
+  margin-bottom: 1.4rem;
+  font-size: 2.4rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.changedate11 {
+  height: 5rem;
+  margin-bottom: 1.4rem;
+  font-size: 2.4rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.changedate12 {
+  height: 5rem;
+  margin-bottom: 1.4rem;
+  font-size: 2.4rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.changedate13 {
+  height: 5rem;
+  margin-bottom: 1.4rem;
+  font-size: 2.4rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.changedate14 {
+  height: 5rem;
+  margin-bottom: 1.4rem;
+  font-size: 2.4rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.changedate15 {
+  height: 5rem;
+  margin-bottom: 1.4rem;
+  font-size: 2.4rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.changedate16 {
+  height: 5rem;
+  margin-bottom: 1.4rem;
+  font-size: 2.4rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.changedate17 {
+  height: 5rem;
+  margin-bottom: 1.4rem;
+  font-size: 2.4rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.changedate18 {
+  height: 5rem;
+  margin-bottom: 1.4rem;
+  font-size: 2.4rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.changedate19 {
+  height: 5rem;
+  margin-bottom: 1.4rem;
+  font-size: 2.4rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.changedate20 {
+  height: 5rem;
+  margin-bottom: 1.4rem;
+  font-size: 2.4rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.changedate21 {
+  height: 5rem;
+  margin-bottom: 1.4rem;
+  font-size: 2.4rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.changedate22 {
+  height: 5rem;
+  margin-bottom: 1.4rem;
+  font-size: 2.4rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.changedate23 {
+  height: 5rem;
+  margin-bottom: 1.4rem;
+  font-size: 2.4rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.changedate24 {
+  height: 5rem;
+  margin-bottom: 1.4rem;
+  font-size: 2.4rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
