@@ -59,6 +59,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <script>
+      // 체크인 버튼 누르면 데베에 체크인시간 Post ->  GET - > calendar에 표시
+
       function checkinDate() {
         let today = new Date();
         let year = today.getFullYear(); // 년도
@@ -97,12 +99,12 @@
             }
 
             get_postCheckin();
+            get_PersonalInfo();
           }
         });
       }
 
       function get_postCheckin() {
-        // $("#cards-box").empty("");
         $.ajax({
           type: "GET",
           url: "/postCheckin",
@@ -133,59 +135,71 @@
                 $(changedate).text(date);
               }
             }
-
-            // backup 888888888888888
-            // for (let i = startingNumber; i < checkinNumbers; i++) {
-            //   let date = checkin_info[i]["Date"];
-            //   let day = checkin_info[i]["Day"];
-            //   let k = [i] - startingNumber + 1;
-            //   console.log(k);
-            //   let changeday = "." + "changeday" + String(k);
-
-            //   changeText(i);
-
-            //   function changeText(i) {
-            //     $(changeday).text(day);
-            //     // $(changedate).text(date);
-            //   }
-            // }
-
-            // for (let i = 0; i < cards.length; i++) {
-            //   let url = cards[i]["url"];
-            //   let comment = cards[i]["comment"];
-            //   let title = cards[i]["title"];
-            //   let image = cards[i]["image"];
-            //   let desc = cards[i]["desc"];
-
-            // }
           }
         });
       }
 
-      //     '<div class="card">\
-      //       <img class="card-img-top" src="' +
-      //       image +
-      //       '" alt="Card image cap">\
-      //       <div class="card-body">\
-      //         <a class="card-title" href="' +
-      //       url +
-      //       '" target="_blank">' +
-      //       title +
-      //       '</a>\
-      //         <p class="card-text">' +
-      //       description +
-      //       '</p>\
-      //         <p class="card-text comment">' +
-      //       comment +
-      //       "</p>\
-      //       </div>\
-      //     </div>"
-      //   );
-      // }
-      // $(document).ready(function() {
-      //   $("#post-cards").html("");
-      //   get_posting();
-      // });
+      //  DB에서 재생목록 썸네일 Url  GET
+      function get_PersonalInfo() {
+        $.ajax({
+          type: "GET",
+          url: "/post",
+          data: {},
+          success: function(response) {
+            let personalInfoData = response["personalInfo"];
+            console.log(personalInfoData);
+
+            // 딕셔너리에서 랜덤 4개 추출
+            //Min, Max, Number
+            // setRand(7, 10, 3);
+
+            // randomFourNubers가 랜던 숫자 4개 list 형태로 나옴
+
+            let maxNumber = personalInfoData.length - 1;
+
+            setRand(0, maxNumber, 4);
+
+            function setRand(min, max, number) {
+              randResult = new Array();
+              randList = new Array();
+              for (i = min; i <= max; i++) {
+                randList.push(i);
+              }
+              for (i = 0; i < number; i++) {
+                getRand();
+              }
+              let randomFourNumbers = randResult;
+              console.log(randomFourNumbers);
+
+              callFourPersonal();
+
+              function callFourPersonal() {
+                let firstPlace = Number(randomFourNumbers[0]);
+                let secondPlace = Number(randomFourNumbers[1]);
+                let thirdPlace = Number(randomFourNumbers[2]);
+                let fourthPlace = Number(randomFourNumbers[3]);
+
+                let firstPersonalInfo = personalInfoData[firstPlace];
+                let secondPersonalInfo = personalInfoData[secondPlace];
+                let thirdPersonalInfo = personalInfoData[thirdPlace];
+                let fourthPersonalInfo = personalInfoData[fourthPlace];
+
+                console.log("에에ㅔ에에에에");
+                console.log(firstPersonalInfo);
+                console.log(secondPersonalInfo);
+                console.log(thirdPersonalInfo);
+                console.log(fourthPersonalInfo);
+              }
+            }
+
+            function getRand() {
+              randNumber = Math.floor(Math.random() * randList.length);
+              randResult.push(randList[randNumber]);
+              randList.splice(randNumber, 1);
+            }
+          }
+        });
+      }
     </script>
   </head>
 
@@ -210,6 +224,8 @@
         </div>
       </div>
     </div>
+
+    <!-- 왼쪽  캘린더  -->
 
     <!-- 본문 박스 입니다. -->
     <div class="fullBody">
@@ -444,6 +460,49 @@
         <div class="rightBox">
           <div class="smallTitleBoxRight">
             <div class="smallTitleTextRight">From your Playlist</div>
+          </div>
+
+          <div class="videoBoxOuter">
+            <div class="videoBoxInner">
+              <div class="videoBoxRow1">
+                <div class="videoOneBox">
+                  <div class="videoOneThumbnailBox"></div>
+                  <div class="videoOneTitleBox"></div>
+
+                  <div class="videoOneButtonArea">
+                    <div class="videoOneButtonBox"></div>
+                  </div>
+                </div>
+
+                <div class="videoOneBox">
+                  <div class="videoOneThumbnailBox"></div>
+                  <div class="videoOneTitleBox"></div>
+
+                  <div class="videoOneButtonArea">
+                    <div class="videoOneButtonBox"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="videoBoxRow2">
+                <div class="videoOneBox">
+                  <div class="videoOneThumbnailBox"></div>
+                  <div class="videoOneTitleBox"></div>
+
+                  <div class="videoOneButtonArea">
+                    <div class="videoOneButtonBox"></div>
+                  </div>
+                </div>
+
+                <div class="videoOneBox">
+                  <div class="videoOneThumbnailBox"></div>
+                  <div class="videoOneTitleBox"></div>
+
+                  <div class="videoOneButtonArea">
+                    <div class="videoOneButtonBox"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

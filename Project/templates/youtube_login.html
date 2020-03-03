@@ -52,10 +52,12 @@
 
       function call(nextToken) {
         // 상황에 따라 변경되는 내용을 변수로 지정
-        //
-        let ownerID = "JeeSoo";
-        let apiKey = "AIzaSyAqeOM2ZmHdwI8lgV75x5D3oplIN_Iw1eo";
-        let playlistId = "PL3g4-ArZ2i-_HGN_h3xty5rZYxeljb3Xp";
+
+        // /////////////////////////////////////////////////////////API 잠시 끄기  ///////////////////////////////////
+        // let ownerID = "JeeSoo";
+        // let apiKey = "AIzaSyAqeOM2ZmHdwI8lgV75x5D3oplIN_Iw1eo";
+        // let playlistId = "PL3g4-ArZ2i-_HGN_h3xty5rZYxeljb3Xp";
+        /////////////////////////////////////////////////////////API 잠시 끄기  ///////////////////////////////////
 
         let url =
           "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=" +
@@ -105,6 +107,7 @@
 
                 DataSet.push({
                   ownerID: "Jeee",
+                  Title: playlistitem_title,
                   URLz: playlistitem_url,
                   thumbnailURL: playlistitem_thumbnail
                 });

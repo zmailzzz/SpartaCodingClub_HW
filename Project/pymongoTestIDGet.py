@@ -7,6 +7,8 @@ from pymongo import MongoClient  # pymongo를 임포트 하기(패키지 인스�
 client = MongoClient('localhost', 27017)  # mongoDB는 27017 포트로 돌아갑니다.
 db = client.testIDD  # 'testID'라는 이름의 db를 만듭니다.
 
+import random
+
 
 # @app.route('/')
 # def home():
@@ -33,7 +35,6 @@ def mypage():
 #     # ID_receive = request.form['ID_give']  # 클라이언트로부터 comment를 받는 부분
 #     # info = {'ID': ID_receive, 'url': url_receive}
 #     # db.testID.insert_one(info)
-
 
 
 ########## 체크인 관련 DB##########################
@@ -63,12 +64,6 @@ def test_get():
     return jsonify({'result': 'success', 'CheckInTest': list(checkinInfo)})
 
 
-
-
-
-
-
-
 # ########   YOUTUBE 관련 DB  ################
 
 
@@ -88,15 +83,20 @@ def postJsonHandler():
 
 @app.route('/post', methods=['GET'])
 def view():
-    posts = db.personalInfo.find({}, {'_id': 0})
-    return jsonify({'result': 'success', 'articles': list(posts)})
+    pInfo = db.personalInfo.find({}, {'_id': 0})
 
-
-
-
-
-
-
+    print("dsfds")
+    # print(jsonify(pInfo))
+    #
+    # randomInfo1 = random.choice(list(pInfo))
+    # randomInfo2 = random.choice(list(pInfo))
+    # randomInfo3 = random.choice(list(pInfo))
+    # randomInfo4 = random.choice(list(pInfo))
+    # print(randomInfo1)
+    # print(randomInfo2)
+    # print(randomInfo3)
+    # print(randomInfo4)
+    return jsonify({'result': 'success', 'personalInfo': list(pInfo)})
 
 
 # @app.route('/get', methods=['POST'])
