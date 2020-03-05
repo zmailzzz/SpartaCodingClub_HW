@@ -42,6 +42,7 @@ def mypage():
 @app.route('/postCheckin', methods=['POST'])
 def postCheckin():
     # 클라이언트로부터 데이터를 받는 부분
+    print('체크인 시작')
     date_receive = request.form['date_give']
     day_receive = request.form['day_give']
 
@@ -60,7 +61,7 @@ def test_get():
     # URL_receive = request.args.get('URL')
     checkinInfo = db.CheckInTest.find({}, {'_id': 0})
     # print(list(checkinInfo))
-    # print('sdfdsfdsfdsfdsfas')
+    print('체크인끝')
     return jsonify({'result': 'success', 'CheckInTest': list(checkinInfo)})
 
 
@@ -69,13 +70,12 @@ def test_get():
 
 @app.route('/post', methods=['POST'])
 def postJsonHandler():
+    print('유튜브 db 시작')
     print(request.is_json)
     content = request.get_json()
     print(content)
+    ################# db.personalInfo.insertMany(content)
     db.personalInfo.insert(content)
-    # return render_template('calendar_card.html')
-    # 중복제거
-    # db.testIDD.distinct("ownerID" and "URLz")
     print('mypage')
     # mypage()
     return 'JSON posted'
@@ -85,7 +85,7 @@ def postJsonHandler():
 def view():
     pInfo = db.personalInfo.find({}, {'_id': 0})
 
-    print("dsfds")
+    print('유튜브 db 끝')
     # print(jsonify(pInfo))
     #
     # randomInfo1 = random.choice(list(pInfo))

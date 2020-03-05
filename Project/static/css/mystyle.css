@@ -3,31 +3,278 @@
 }
 
 body {
-  max-width: 900px;
+  margin: 0;
+  padding: 0;
+}
+.headerFrame {
+  width: 153.6rem;
+  height: 5.6rem;
+  background-color: #3e4348;
+
+  /* border-width: 0.1rem;
+  border-color: black;
+  border-style: solid; */
+}
+
+.headerBox {
+  width: 153.6rem;
+  height: 100%;
+
+  display: flex;
+  align-content: center;
+}
+
+.YoutubelogoBox {
+  width: 6rem;
+  height: 6rem;
+  display: flex;
+}
+
+.YoutubeMainLogo {
+  width: 4.5rem;
+
   margin: auto;
 }
 
-.feed-frame {
-  margin: 1rem auto;
-  padding-top: 2rem !important;
-  padding-bottom: 2rem !important;
+/* .youtubeLogo {
+  width: 5rem;
+} */
+
+.YoutubeTextBox {
+  width: 10rem;
+  height: 5.6rem;
+  display: flex;
+  /* vertical-align: middle; */
 }
 
-.form-post {
-  max-width: 500px;
-  padding: 2rem;
-  margin: 2rem auto;
-  border-color: #e9ecef;
-  border-radius: 0.3rem;
-  border: solid;
-  display: none;
+.YoutubeText {
+  margin: auto;
+  font-size: 2.5rem;
+  color: white;
+  font: Serif;
+  font-weight: bolder;
 }
 
-.comment {
-  color: blue;
+.AcademyTextBox {
+  width: 15rem;
+  height: 5.6rem;
+}
+
+.AcademyText {
+  width: 10rem;
+  height: 3rem;
+  margin-top: 1.2rem;
+  margin-left: 0.6rem;
+  font-size: 1.3rem;
+  color: #f39c9c;
+  font: Serif;
+  font-weight: bolder;
+}
+
+.fullBody {
+  margin: 0;
+  padding: 0;
+  padding-top: 13rem;
+  padding-left: 0.8rem;
+
+  width: 152.5rem;
+  height: 69rem;
+
+  background-color: #ffffff;
+  /* 
+  border-width: 0.001rem;
+  border-color: black;
+  border-style: solid; */
+
+  display: flex;
+  justify-content: center;
+}
+
+.loginFullBox {
+  width: 40rem;
+  height: 40rem;
+
+  background: #f7f7f7 0% 0% no-repeat padding-box;
+  box-shadow: 0px 6px 6px #00000029;
+  opacity: 1;
+}
+
+.profileBox {
+  width: 100%;
+  height: 40%;
+
+  /* border-width: 0.1rem;
+  border-color: black;
+  border-style: solid; */
+
+  display: flex;
+  justify-content: center;
+}
+
+.YoutubeProfileBox {
+  width: 100%;
+  height: 50%;
+
+  margin-top: 5rem;
+
+  display: flex;
+  justify-content: center;
+}
+
+.YoutubeProfileImage {
+  width: 12rem;
+  height: 8rem;
+}
+
+.IdLine {
+  width: 100%;
+  height: 12%;
+
+  /* 
+  border-width: 0.1rem;
+  border-color: black;
+  border-style: solid; */
+
+  display: flex;
+  justify-content: center;
+}
+
+.text {
+  height: 16rem;
+  margin-top: 0.7rem;
+  font-size: 1.3rem;
+}
+
+.IDText {
+  width: 25%;
+  height: 80%;
+
+  margin-top: 1.4rem;
+  background: #f7f7f7 0% 0% no-repeat padding-box;
+  border: 1.5px solid #ecbdbd;
+  border-radius: 3px;
+  opacity: 1;
   font-weight: bold;
+  color: #504f4f;
 }
 
-.card-columns-card-post {
-  width: 400px;
+.IDInputBox {
+  width: 55%;
+  height: 80%;
+
+  margin-top: 1.4rem;
+  background: #f7f7f7 0% 0% no-repeat padding-box;
+  border: 1.5px solid #bebebe;
+  border-radius: 3px;
+  opacity: 1;
+}
+
+.APILine {
+  width: 100%;
+  height: 12%;
+
+  /* border-width: 0.1rem;
+  border-color: black;
+  border-style: solid; */
+
+  display: flex;
+  justify-content: center;
+}
+
+.APIText {
+  width: 25%;
+  height: 80%;
+
+  margin-top: 0.9rem;
+  background: #f7f7f7 0% 0% no-repeat padding-box;
+  border: 1.5px solid #ecbdbd;
+  border-radius: 3px;
+  opacity: 1;
+  font-weight: bold;
+  color: #504f4f;
+}
+
+.APIInputBox {
+  width: 55%;
+  height: 80%;
+
+  margin-top: 0.9rem;
+  background: #f7f7f7 0% 0% no-repeat padding-box;
+  border: 1.5px solid #bebebe;
+  border-radius: 3px;
+  opacity: 1;
+}
+
+.PlaylistLine {
+  width: 100%;
+  height: 12%;
+
+  /* border-width: 0.1rem;
+  border-color: black;
+  border-style: solid; */
+
+  display: flex;
+  justify-content: center;
+}
+
+.PlaylistText {
+  width: 25%;
+  height: 80%;
+
+  margin-top: 0.5rem;
+  background: #f7f7f7 0% 0% no-repeat padding-box;
+  border: 1.5px solid #ecbdbd;
+  border-radius: 3px;
+  opacity: 1;
+  font-weight: bold;
+  color: #504f4f;
+}
+
+.PlaylistInputBox {
+  width: 55%;
+  height: 80%;
+
+  margin-top: 0.5rem;
+  background: #f7f7f7 0% 0% no-repeat padding-box;
+  border: 1.5px solid #bebebe;
+  border-radius: 3px;
+  opacity: 1;
+}
+
+.ButtonLine {
+  width: 100%;
+  height: 15%;
+
+  padding-top: 0.5rem;
+  /* border-width: 0.1rem;
+  border-color: black;
+  border-style: solid; */
+
+  display: flex;
+  justify-content: center;
+}
+
+.ButtonBox {
+  width: 80%;
+  height: 80%;
+
+  background: #ec6a5c;
+  border-radius: 4px;
+  opacity: 1;
+}
+
+.Button {
+  width: 100%;
+  height: 100%;
+
+  color: whitesmoke;
+  font-size: 2.3rem;
+  font-weight: bolder;
+
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
 }

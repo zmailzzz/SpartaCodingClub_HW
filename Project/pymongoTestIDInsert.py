@@ -38,7 +38,11 @@ db = client.testIDD  # 'testID'라는 이름의 db를 만듭니다.
 # MongoDB에 insert 하기(완료)
 # 'users'라는 collection에 {'name':'bobby','age':21}를 넣습니다.
 # db.testIDD.insert_one({"ownerID": "jjjj",
-#                       "URLz": "https://www.youtube.com/watch?v=N6nf4lYF8A0&t=2s&index=1&list=PL3g4-ArZ2i-_HGN_h3xty5rZYxeljb3Xp"})
+#                       "URLz": "https://www.youtube.com/watch?v=N6nf4lYF8A0&t=2s&index=1&list=PL3g4-ArZ2i-_HGN_h3xty5rZYxeljb3Xp",
+#                       "Title": "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
+#                        "thumbnailURL"
+# }
+#                       )
 # db.testIDD.insert_one({"ownerID": "jjjj",
 #                       "URLz": "https://www.youtube.com/watch?v=qwZ0yAQA-QI&t=2s&index=1&list=PL3g4-ArZ2i-_HGN_h3xty5rZYxeljb3Xp"})
 # db.testIDD.insert_one({"ownerID": "jjjj",

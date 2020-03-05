@@ -25,7 +25,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="{{ url_for('static', filename='css/cccstyle.css') }}"
+      href="{{ url_for('static', filename='/css/cccstyle.css') }}"
     />
 
     <!-- Required meta tags -->
@@ -57,7 +57,9 @@
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
 
+  <body>
     <script>
       // 체크인 버튼 누르면 데베에 체크인시간 Post ->  GET - > calendar에 표시
 
@@ -124,7 +126,7 @@
               let date = checkin_info[i]["Date"];
               let day = checkin_info[i]["Day"];
               let k = [i] - startingNumber + 1;
-              console.log(k);
+              // console.log(k);
               let changeday = "." + "changeday" + String(k);
               let changedate = "." + "changedate" + String(k);
 
@@ -140,6 +142,13 @@
       }
 
       //  DB에서 재생목록 썸네일 Url  GET
+
+      let fourLinks = [];
+      let link_one = "";
+      let link_two = "";
+      let link_three = "";
+      let link_four = "";
+
       function get_PersonalInfo() {
         $.ajax({
           type: "GET",
@@ -184,11 +193,72 @@
                 let thirdPersonalInfo = personalInfoData[thirdPlace];
                 let fourthPersonalInfo = personalInfoData[fourthPlace];
 
+                let finalFourPersonalInfo = [
+                  firstPersonalInfo,
+                  secondPersonalInfo,
+                  thirdPersonalInfo,
+                  fourthPersonalInfo
+                ];
+
                 console.log("에에ㅔ에에에에");
                 console.log(firstPersonalInfo);
                 console.log(secondPersonalInfo);
                 console.log(thirdPersonalInfo);
                 console.log(fourthPersonalInfo);
+
+                console.log("흐아아아아ㅏ앙");
+                console.log(finalFourPersonalInfo);
+
+                changeInfo();
+
+                // 삽입 구간
+                function changeInfo() {
+                  for (let i = 0; i < 4; i++) {
+                    let Thumbnail = finalFourPersonalInfo[i]["thumbnailURL"];
+                    let Url = finalFourPersonalInfo[i]["URLz"];
+                    let Title = finalFourPersonalInfo[i]["Title"];
+
+                    fourLinks.push(finalFourPersonalInfo[i]["URLz"]);
+
+                    ////////////////////////// 썸네일 추가
+
+                    // 타이틀 입력, 체크인 버튼 입력
+                    let k = i + 1;
+                    console.log(k);
+                    let ThumbnailQuo = '"' + Thumbnail + '"';
+                    let elementID = "img" + String(k);
+                    // let sharpElementID = '"' + "#" + "img" + String(k) + '"';
+                    let sharpElementID = '"' + "#" + "img" + String(k) + '"';
+                    let insertTitle = "." + "insertTitle" + String(k);
+                    // let insertButtonText = "." + "insertButtonText" + String(k);
+                    console.log("여기까지1");
+                    console.log(elementID);
+                    console.log(ThumbnailQuo);
+
+                    let img = document.getElementById(elementID);
+                    // let img = document.getElementById(elementID);
+                    img.src = Thumbnail;
+
+                    // $(sharpElementID).attr("src", ThumbnailQuo);
+                    // document.getElementById(elementID).src = ThumbnailQuo;
+
+                    // $("#id1").attr("src", ThumbnailQuo);
+                    console.log("여기까지11");
+                    insertText();
+
+                    function insertText() {
+                      console.log("여기까지2");
+                      console.log(insertTitle);
+                      console.log(Title);
+                      $(insertTitle).text(Title);
+                      console.log("여기까지3");
+                      // $(insertButtonText).text("watch");
+                    }
+                    console.log("여기까지12");
+
+                    console.log("여기까지13");
+                  }
+                }
               }
             }
 
@@ -200,15 +270,69 @@
           }
         });
       }
-    </script>
-  </head>
 
-  <body>
+      function watchButtonClick1() {
+        console.log("바쁘게");
+        console.log(fourLinks);
+        console.log("살아온");
+
+        location.href = fourLinks[0];
+
+        // console.log("여기까지14");
+      }
+
+      function watchButtonClick1() {
+        location.href = fourLinks[0];
+      }
+
+      function watchButtonClick2() {
+        location.href = fourLinks[1];
+      }
+      function watchButtonClick3() {
+        location.href = fourLinks[2];
+      }
+      function watchButtonClick4() {
+        location.href = fourLinks[3];
+      }
+
+      function seeyou() {
+        console.log("바쁘게");
+        console.log(fourLinks);
+        console.log("살아온");
+      }
+
+      // // 개인 정보 삽입 기능 따로 추가
+      // function inputPersonalInfo() {
+      //   for (let i = 0; i < 4; i++) {
+      //     // 네개 합쳐야 함
+
+      //     let ID = finalFourPersonalInfo[i]["ownerID"];
+      //     let videoURL = finalFourPersonalInfo[i]["URLz"];
+      //     let videoTitle = finalFourPersonalInfo[i]["Title"];
+      //     let thumbnailURL = finalFourPersonalInfo[i]["thumbnailURL"];
+
+      //     //  여기부터 루프 돌면서 삽입기능 추가
+
+      //     let changeday = "." + "changeday" + String(k);
+      //     let changedate = "." + "changedate" + String(k);
+
+      //     changeText(i);
+
+      //     function changeText(i) {
+      //       $(changeday).text(day);
+      //       $(changedate).text(date);
+      //     }
+      //   }
+      // }
+    </script>
     <!-- footer -->
     <div class="headerFrame">
       <div class="headerBox">
         <div class="YoutubelogoBox">
-          <!-- <img src="/youtubeLogo.png" /> -->
+          <img
+            class="YoutubeMainLogo"
+            src="{{ url_for('static', filename='/css/youtubeLogo.png') }}"
+          />
         </div>
 
         <div class="YoutubeTextBox">
@@ -466,39 +590,108 @@
             <div class="videoBoxInner">
               <div class="videoBoxRow1">
                 <div class="videoOneBox">
-                  <div class="videoOneThumbnailBox"></div>
-                  <div class="videoOneTitleBox"></div>
+                  <div class="videoOneThumbnailBox">
+                    <img
+                      src="{{ url_for('static', filename='/css/youtubeLogo.png') }}"
+                      class="image"
+                      id="img1"
+                    />
+                    <!-- alt="{{ url_for('static', filename='/css/youtubeLogo.png') }}" -->
+                  </div>
+                  <div class="videoOneTitleBox">
+                    <div class="videoOneTitleTextBox">
+                      <p class="insertTitle1"></p>
+                    </div>
+                  </div>
 
                   <div class="videoOneButtonArea">
-                    <div class="videoOneButtonBox"></div>
+                    <div class="videoOneButtonBox">
+                      <button
+                        class="videoOneButton"
+                        onclick="watchButtonClick1()"
+                      >
+                        watch
+                      </button>
+                    </div>
                   </div>
                 </div>
 
                 <div class="videoOneBox">
-                  <div class="videoOneThumbnailBox"></div>
-                  <div class="videoOneTitleBox"></div>
+                  <div class="videoOneThumbnailBox">
+                    <img
+                      src="{{ url_for('static', filename='/css/youtubeLogo.png') }}"
+                      class="image"
+                      id="img2"
+                    />
+                  </div>
+                  <div class="videoOneTitleBox">
+                    <div class="videoOneTitleTextBox">
+                      <p class="insertTitle2"></p>
+                    </div>
+                  </div>
 
                   <div class="videoOneButtonArea">
-                    <div class="videoOneButtonBox"></div>
+                    <div class="videoOneButtonBox">
+                      <button
+                        class="videoOneButton"
+                        onclick="watchButtonClick2()"
+                      >
+                        watch
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
               <div class="videoBoxRow2">
                 <div class="videoOneBox">
-                  <div class="videoOneThumbnailBox"></div>
-                  <div class="videoOneTitleBox"></div>
+                  <div class="videoOneThumbnailBox">
+                    <img
+                      src="{{ url_for('static', filename='/css/youtubeLogo.png') }}"
+                      class="image"
+                      id="img3"
+                    />
+                  </div>
+                  <div class="videoOneTitleBox">
+                    <div class="videoOneTitleTextBox">
+                      <p class="insertTitle3"></p>
+                    </div>
+                  </div>
 
                   <div class="videoOneButtonArea">
-                    <div class="videoOneButtonBox"></div>
+                    <div class="videoOneButtonBox">
+                      <button
+                        class="videoOneButton"
+                        onclick="watchButtonClick3()"
+                      >
+                        watch
+                      </button>
+                    </div>
                   </div>
                 </div>
 
                 <div class="videoOneBox">
-                  <div class="videoOneThumbnailBox"></div>
-                  <div class="videoOneTitleBox"></div>
+                  <div class="videoOneThumbnailBox">
+                    <img
+                      src="{{ url_for('static', filename='/css/youtubeLogo.png') }}"
+                      class="image"
+                      id="img4"
+                    />
+                  </div>
+                  <div class="videoOneTitleBox">
+                    <div class="videoOneTitleTextBox">
+                      <p class="insertTitle4"></p>
+                    </div>
+                  </div>
 
                   <div class="videoOneButtonArea">
-                    <div class="videoOneButtonBox"></div>
+                    <div class="videoOneButtonBox">
+                      <button
+                        class="videoOneButton"
+                        onclick="watchButtonClick4()"
+                      >
+                        watch
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

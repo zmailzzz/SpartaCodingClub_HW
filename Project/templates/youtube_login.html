@@ -4,15 +4,27 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>뚜루뚜루</title>
+    <title>Log-in Page</title>
+
+    <!-- 1rem = 10px -->
+    <style>
+      html {
+        font-size: 10px;
+      }
+      body {
+        font-size: 10px;
+      }
+    </style>
+
     <!-- HTML에 이 부분을 추가하고 -->
-    <link
+    <!-- <link
       href="https://fonts.googleapis.com/css?family=Stylish&display=swap"
       rel="stylesheet"
-    />
+    /> -->
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='css/mystyle.css') }}"
+      type="text/css"
+      href="{{ url_for('static', filename='/css/mystyle.css') }}"
     />
     <!-- Required meta tags -->
     <meta
@@ -57,14 +69,24 @@
         // let ownerID = "JeeSoo";
         // let apiKey = "AIzaSyAqeOM2ZmHdwI8lgV75x5D3oplIN_Iw1eo";
         // let playlistId = "PL3g4-ArZ2i-_HGN_h3xty5rZYxeljb3Xp";
-        /////////////////////////////////////////////////////////API 잠시 끄기  ///////////////////////////////////
 
-        let url =
-          "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=" +
-          playlistId +
-          "&key=" +
-          apiKey +
-          "&maxResults=50";
+        // let url =
+        //   "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=" +
+        //   playlistId +
+        //   "&key=" +
+        //   apiKey +
+        //   "&maxResults=50";
+
+        // /////////////////////////////////////////////////////////API 잠시 끄기  ///////////////////////////////////
+
+        // ////////API 끄고 테스트용//////////////////////////////////////API 잠시 끄기  ///////////////////////////////////
+        let ownerID = "Jao";
+        let apiKey = "Aaa";
+        let playlistId = "ep";
+
+        let url = "zzzzzzzz";
+        //////API 끄고 테스트용//////////////////////////////////////API 잠시 끄기  ///////////////////////////////////
+
         // (XMLHttpRequest 객체 이용) 페이지를 전환하지 않고 브라우저한테 몰래 이 주소로 접속해서 정보를 가져오라고 시킴
         let req = new XMLHttpRequest();
         let pageToken = "";
@@ -143,7 +165,7 @@
               }
               // 접속이 실패하면 이 코드 실행
             } else {
-              alert("Error loading page\n");
+              console.log("Error loading page");
             }
 
             /////////////// 다음페이지 함수 호출
@@ -162,6 +184,71 @@
   </head>
 
   <body>
-    <button onclick="call()">sssss</button>
+    <!-- footer -->
+    <div class="headerFrame">
+      <div class="headerBox">
+        <div class="YoutubelogoBox">
+          <img
+            class="YoutubeMainLogo"
+            src="{{ url_for('static', filename='/css/youtubeLogo.png') }}"
+          />
+        </div>
+
+        <div class="YoutubeTextBox">
+          <div class="YoutubeText">
+            Youtube
+          </div>
+        </div>
+
+        <div class="AcademyTextBox">
+          <div class="AcademyText">
+            Academy
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 왼쪽  캘린더  -->
+
+    <!-- 본문 박스 입니다. -->
+
+    <div class="fullBody">
+      <div class="loginFullBox">
+        <div class="profileBox">
+          <div class="YoutubeProfileBox">
+            <img
+              class="YoutubeProfileImage"
+              src="{{ url_for('static', filename='/css/youtubeLogo.png') }}"
+            />
+          </div>
+        </div>
+
+        <div class="IdLine">
+          <div class="IDText">
+            <div class="text">Email</div>
+          </div>
+          <div class="IDInputBox">
+            <div class="text">zamilzzz@gmail.com</div>
+          </div>
+        </div>
+
+        <div class="APILine">
+          <div class="APIText"><div class="text">Google API Key</div></div>
+          <div class="APIInputBox">
+            <div class="text">AIzaSyAqeOM2ZmH******************</div>
+          </div>
+        </div>
+
+        <div class="PlaylistLine">
+          <div class="PlaylistText"><div class="text">Playlist Name</div></div>
+          <div class="PlaylistInputBox"><div class="text">LEVEL-UP</div></div>
+        </div>
+        <div class="ButtonLine">
+          <div class="ButtonBox">
+            <button class="Button" onclick="call()">Sign in</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
