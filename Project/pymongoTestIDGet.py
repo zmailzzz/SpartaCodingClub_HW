@@ -67,18 +67,18 @@ def test_get():
 
 # ########   YOUTUBE 관련 DB  ################
 
-
-@app.route('/post', methods=['POST'])
-def postJsonHandler():
-    print('유튜브 db 시작')
-    print(request.is_json)
-    content = request.get_json()
-    print(content)
-    ################# db.personalInfo.insertMany(content)
-    db.personalInfo.insert(content)
-    print('mypage')
-    # mypage()
-    return 'JSON posted'
+#API 꺼 두우우우우웅ㅁ 
+# @app.route('/post', methods=['POST'])
+# def postJsonHandler():
+#     print('유튜브 db 시작')
+#     print(request.is_json)
+#     content = request.get_json()
+#     print(content)
+#     ################# db.personalInfo.insertMany(content)
+#     db.personalInfo.insert(content)
+#     print('mypage')
+#     # mypage()
+#     return 'JSON posted'
 
 
 @app.route('/post', methods=['GET'])

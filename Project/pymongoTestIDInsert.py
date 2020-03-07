@@ -33,7 +33,7 @@ db = client.testIDD  # 'testID'라는 이름의 db를 만듭니다.
 # db.CheckInTest.insert_one({"Date": "2/26", "Day": "Wednesday"}, {'_id': 0})
 # db.CheckInTest.insert_one({"Date": "2/27", "Day": "Thursday"}, {'_id': 0})
 # db.CheckInTest.insert_one({"Date": "2/28", "Day": "Friday"}, {'_id': 0})
-
+#
 
 # MongoDB에 insert 하기(완료)
 # 'users'라는 collection에 {'name':'bobby','age':21}를 넣습니다.
